@@ -48,10 +48,7 @@ const Brand = styled.a`
 
 const Ul = styled.ul`
   display: flex;
-  flex-wrap: nowrap;
-  overflow: scroll;
-  /* overflow-x: hidden; */
-  -webkit-overflow-scrolling: touch;`;
+  flex-wrap: nowrap`;
 
 const Li = styled.li`
   flex: 0 0 auto;

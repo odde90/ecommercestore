@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css'
 import Frontpage from './frontpage'
 import NavbarScroller from './navbar';
+import TitlebarGridList from './gridList'
 import { Button } from '@material-ui/core';
 
 const navigation = {
@@ -25,13 +26,9 @@ export default class App extends Component {
       <div className="App">
         <NavbarScroller brand={brand} links={links} />
         <div className="hello">
-          <ol>
-            <li>product 1</li>
-            <li>product 2</li>
-            <li>product 3</li>
-          </ol>
 
           <Frontpage />
+          <TitlebarGridList />
           <Button variant="contained" color="secondary">
             Secondary
       </Button>
