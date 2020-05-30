@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Button } from '@material-ui/core';
 
 
 interface State {
@@ -7,13 +7,18 @@ interface State {
 }
 
 interface Props {
-
 }
 
-export default class Frontpage extends React.Component<Props, State>{
-    render() {
-        return (
-            <div>Hello</div>
-        );
-    }
+function Frontpage(props: { myFunc: ((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined; }) {
+    return (
+        <div>
+            <h1>home page here</h1>
+            <Button onClick={props.myFunc} variant="contained" color="secondary">
+                add to cart
+            </Button>
+        </div>
+    );
 }
+
+
+export default Frontpage 

@@ -1,39 +1,37 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment, useState } from 'react';
 import './App.css'
 import Frontpage from './frontpage'
-import NavbarScroller from './navbar';
+import Navbar from './navbar';
 import TitlebarGridList from './gridList'
 import { Button } from '@material-ui/core';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-const navigation = {
-  brand: { name: 'NavScroller', to: '/' },
-  links: [
-    { name: 'Item 1', to: '/' },
-    { name: 'Item 2', to: '/' },
-    { name: 'Item 3', to: '/' },
-    { name: 'Item 4', to: '/' },
-    { name: 'Item 5', to: '/' },
-    { name: 'Item 6', to: '/' },
 
-  ]
-};
 
-export default class App extends Component {
-  public render() {
-    const { brand, links } = navigation;
+function App() {
 
-    return (
-      <div className="App">
-        <NavbarScroller brand={brand} links={links} />
-        <div className="hello">
+  const [cart, setCart] = useState(0)
 
-          <Frontpage />
-          <TitlebarGridList />
-          <Button variant="contained" color="secondary">
-            Secondary
-      </Button>
-        </div>
-      </div>
-    );
+  const addToCart = () => {
+    setCart(cart + 1)
   }
+
+  return (
+    <div className="App">
+      <Fragment>
+        <BrowserRouter>
+          <Navbar cartNumber={cart} />
+          <Switch>
+            <Route exact path="/" render={() => <Frontpage myFunc={addToCart} />} />
+            <Route path="/TitlebarGridList" component={TitlebarGridList} />
+          </Switch>
+          {/*           <Button variant="contained" color="secondary">
+            Secondary
+      </Button> */}
+        </BrowserRouter>
+      </Fragment>
+    </div>
+  );
+
 }
+export default App 
