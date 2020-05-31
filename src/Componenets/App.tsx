@@ -1,35 +1,37 @@
-import React, { Component } from "react";
-import "./App.css";
-import Frontpage from "./frontpage";
-import NavbarScroller from "./navbar";
-import TitlebarGridList from "./gridList";
-import { Button } from "@material-ui/core";
-import Footer from "./footer";
+import React, { Component, Fragment, useState } from 'react';
+import './App.css'
+import Frontpage from './frontpage'
+import Navbar from './navbar';
+import TitlebarGridList from './gridList'
+import { Button } from '@material-ui/core';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-const navigation = {
-  brand: { name: "eShop.se", to: "/" },
-  links: [
-    { name: "Checkout", to: "/" },
-    { name: "Cart", to: "/" }
-  ]
-};
 
-export default class App extends Component {
-  public render() {
-    const { brand, links } = navigation;
+function App() {
 
-    return (
-      <div className="App">
-        <NavbarScroller brand={brand} links={links} />
-        <div className="hello">
-          <Frontpage />
-          <TitlebarGridList />
+
+  const [cart, setCart] = useState(0)
+
+  const addToCart = () => {
+    setCart(cart + 1)
+  }
+
+  return (
+    <div className="App">
+      <Fragment>
+        <BrowserRouter>
+          <Navbar cartNumber={cart} />
+          <Switch>
+            <Route exact path="/" render={() => <Frontpage myFunc={addToCart} />} />
+            <Route path="/TitlebarGridList" component={TitlebarGridList} />
+          </Switch>
           {/*           <Button variant="contained" color="secondary">
             Secondary
-          </Button> */}
-          <Footer />
-        </div>
-      </div>
-    );
-  }
+      </Button> */}
+        </BrowserRouter>
+      </Fragment>
+    </div>
+  );
+
 }
+export default App 
