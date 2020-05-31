@@ -1,21 +1,25 @@
-import * as React from 'react'
-import styled from 'styled-components'
-
+import * as React from "react";
+import styled from "styled-components";
 
 const NavbarScroller = (props: {
-  brand: { name: string; to: string },
-  links: Array<{ name: string, to: string }>
+  brand: { name: string; to: string };
+  links: Array<{ name: string; to: string }>;
 }) => {
   const { brand, links } = props;
-  const NavLinks: any = () => links.map((link: { name: string, to: string }) => <Li key={link.name}><a href={link.to}>{link.name}</a></Li>);
+  const NavLinks: any = () =>
+    links.map((link: { name: string; to: string }) => (
+      <Li key={link.name}>
+        <a href={link.to}>{link.name}</a>
+      </Li>
+    ));
   return (
     <Navbar>
       <Brand href={brand.to}>{brand.name}</Brand>
       <Ul>
         <NavLinks />
       </Ul>
-    </Navbar >
-  )
+    </Navbar>
+  );
 };
 
 const Theme = {
@@ -23,13 +27,13 @@ const Theme = {
     bg: `#fff`,
     dark: `#24292e`,
     light: `#EEEEEE`,
-    red: `#ff5851`,
+    red: `#ff5851`
   },
   fonts: {
     body: `IBM Plex Sans, sans-serif`,
-    heading: `IBM Plex Sans, sans-serif`,
+    heading: `IBM Plex Sans, sans-serif`
   }
-}
+};
 
 const Navbar = styled.nav`
   background: ${Theme.colors.dark};
@@ -38,17 +42,23 @@ const Navbar = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  a { color: white; text-decoration: none; }`;
+  a {
+    color: white;
+    text-decoration: none;
+  }
+`;
 
 const Brand = styled.a`
   font-weight: bold;
   font-style: italic;
   margin-left: 1rem;
-  padding-right: 1rem;`;
+  padding-right: 1rem;
+`;
 
 const Ul = styled.ul`
   display: flex;
-  flex-wrap: nowrap`;
+  flex-wrap: nowrap;
+`;
 
 const Li = styled.li`
   flex: 0 0 auto;
@@ -70,8 +80,9 @@ const Li = styled.li`
   height: 50px;
   justify-content: center;
   line-height: 16px;
-  margin: 0 1.125rem ;
+  margin: 0 1.125rem;
   text-decoration: none;
-  white-space: nowrap;`;
+  white-space: nowrap;
+`;
 
 export default NavbarScroller;
