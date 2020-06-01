@@ -2,7 +2,7 @@ import React, { Component, Fragment, useState } from 'react';
 import './App.css'
 import Product from './Product'
 import Navbar from './navbar';
-import TitlebarGridList from './gridList'
+import Home from './gridList'
 import { Button } from '@material-ui/core';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
@@ -23,7 +23,7 @@ function App() {
           <Navbar cartNumber={cart} />
           <Switch>
             <Route exact path="/" render={() => <Product myFunc={addToCart} />} />
-            <Route path="/TitlebarGridList" component={TitlebarGridList} />
+            <Route path="/Home" component={Home} />
           </Switch>
           {/*           <Button variant="contained" color="secondary">
             Secondary
