@@ -1,8 +1,8 @@
 import React, { Component, Fragment, useState } from 'react';
 import './App.css'
-import Frontpage from './frontpage'
+import Product from './Product'
 import Navbar from './navbar';
-import TitlebarGridList from './gridList'
+import Home from './gridList'
 import { Button } from '@material-ui/core';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
@@ -22,8 +22,8 @@ function App() {
         <BrowserRouter>
           <Navbar cartNumber={cart} />
           <Switch>
-            <Route exact path="/" render={() => <Frontpage myFunc={addToCart} />} />
-            <Route path="/TitlebarGridList" component={TitlebarGridList} />
+            <Route exact path="/" render={() => <Product myFunc={addToCart} />} />
+            <Route path="/Home" component={Home} />
           </Switch>
           {/*           <Button variant="contained" color="secondary">
             Secondary

@@ -8,10 +8,10 @@ interface Props { }
 interface Props {
 }
 
-function Frontpage(props: { myFunc: ((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined; }) {
+function Product(props: { myFunc: ((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined; }) {
   return (
     <div>
-      <h1>home page here</h1>
+      <h1>Product page here</h1>
       <Button onClick={props.myFunc} variant="contained" color="secondary">
         add to cart
             </Button>
@@ -20,5 +20,5 @@ function Frontpage(props: { myFunc: ((event: React.MouseEvent<HTMLButtonElement,
 }
 
 
-export default Frontpage
+export default Product
 
