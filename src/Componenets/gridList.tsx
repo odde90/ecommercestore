@@ -32,35 +32,30 @@ import { Button, Typography } from "@material-ui/core";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 const assets = [
   {
-    productID: 1,
     img: image,
     title: "Dark Blue",
     author: "author",
     prise: "5000"
   },
   {
-    productID: 2,
     img: image,
     title: "Groom Classic",
     author: "author",
     prise: "2500"
   },
   {
-    productID: 3,
     img: image,
     title: "Summer Suit",
     author: "author",
     prise: "1800"
   },
   {
-    productID: 4,
     img: image,
     title: "Tiger of Sweden",
     author: "author",
     prise: "2000"
   },
   {
-    productID: 5,
     img: image,
     title: "Party Style",
     author: "author",
@@ -68,7 +63,7 @@ const assets = [
   }
 ];
 
-export default function TitlebarGridList(props: { myFunc: () => void }) {
+export default function TitlebarGridList() {
   const classes = useStyles();
   return (
     <div className={classes.root}>
@@ -87,11 +82,7 @@ export default function TitlebarGridList(props: { myFunc: () => void }) {
                   aria-label={`info about ${tile.title}`}
                   className={classes.icon}
                 >
-                  <Button
-                    onClick={props.myFunc}
-                    variant="contained"
-                    color="secondary"
-                  >
+                  <Button variant="contained" color="secondary">
                     <ShoppingCartOutlinedIcon
                       fontSize="inherit"
                       style={{ fontSize: "20px" }}
