@@ -32,30 +32,35 @@ import { Button, Typography } from "@material-ui/core";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 const assets = [
   {
+    productID: 1,
     img: image,
     title: "Dark Blue",
     author: "author",
     prise: "5000"
   },
   {
+    productID: 2,
     img: image,
     title: "Groom Classic",
     author: "author",
     prise: "2500"
   },
   {
+    productID: 3,
     img: image,
     title: "Summer Suit",
     author: "author",
     prise: "1800"
   },
   {
+    productID: 4,
     img: image,
     title: "Tiger of Sweden",
     author: "author",
     prise: "2000"
   },
   {
+    productID: 5,
     img: image,
     title: "Party Style",
     author: "author",
