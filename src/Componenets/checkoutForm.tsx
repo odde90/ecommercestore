@@ -67,7 +67,7 @@ export class checkoutForm extends Component  {
         onChange={this.handleChange}        
       />
 
-      <Shipping/>
+      <Shipping />
       <h3>Total:</h3>
               </form>
              </div>

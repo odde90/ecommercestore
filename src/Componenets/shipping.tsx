@@ -23,6 +23,7 @@ export default function Shipping(){
     const [state, setState] = React.useState<{  name: string }>({
     
         name: 'str'
+        
       });
   
     const handleChange = (event: React.ChangeEvent<{ name?: string; value: any }>) => {
@@ -32,6 +33,12 @@ export default function Shipping(){
           [name]: event.target.value,
         });
       };
+      const today= (days:number) =>{
+        var dt = new Date();
+
+        return dt.getFullYear() + "/" + (dt.getMonth() + 1) + "/" + (dt.getDate() +days);
+      }
+      console.log(state)
     return(
         <div>
             <FormControl required className={classes.formControl}>
@@ -40,15 +47,15 @@ export default function Shipping(){
           native
           value={state.name}
           onChange={handleChange}
-          name="name"
+          name="price"
           inputProps={{
             id: 'age-native-required',
           }}
         >
           <option aria-label="None" value="" />
-          <option value={10}>One day</option>
-          <option value={20}>Two days</option>
-          <option value={30}>Three days</option>
+          <option value={10}>Next day,{today(1)} </option>
+          <option value={20}>Two days{today(2)} </option>
+          <option value={30}>Three days{today(3)} </option>
         </Select>
         <FormHelperText>Required</FormHelperText>
       </FormControl>
