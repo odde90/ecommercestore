@@ -10,8 +10,8 @@ function Navbar(props: { cartNumber: React.ReactNode }) {
       <h2>ONLINE SHOP</h2>
       <ul>
         <li><Link to="/">Sign in</Link></li>
-        <li><Link to="/Home">Home</Link></li>
-        <li><Link to="/">Product</Link></li>
+        <li><Link to="/Product">Product</Link></li>
+        <li><Link to="/">Home</Link></li>
         <li><a href="#">Cart <span>{props.cartNumber}</span></a></li>
       </ul>
     </nav>

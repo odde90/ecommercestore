@@ -22,8 +22,8 @@ function App() {
         <BrowserRouter>
           <Navbar cartNumber={cart} />
           <Switch>
-            <Route exact path="/" render={() => <Product myFunc={addToCart} />} />
-            <Route path="/Home" component={Home} />
+            <Route exact path="/" component={Home} />
+            <Route path="/product/:id" component={Product} />
           </Switch>
           {/*           <Button variant="contained" color="secondary">
             Secondary
