@@ -1,24 +1,81 @@
-import React from 'react'
-import { Button } from '@material-ui/core';
+import React from "react";
+import { products } from '../productdata'
+import { RouteComponentProps, match } from 'react-router'
+import Home from './gridList'
+import GridListTile from '@material-ui/core/GridListTile';
+import GridListTileBar from '@material-ui/core/GridListTileBar';
+import IconButton from "@material-ui/core/IconButton";
+import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
+import { Button, GridList } from "@material-ui/core";
+import { Theme, createStyles, makeStyles } from "@material-ui/core/styles";
 
 
-interface Props { }
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      display: "flex",
+      flexWrap: "wrap",
+      justifyContent: "space-around",
+      overflow: "hidden",
+      backgroundColor: theme.palette.background.paper
+    },
+    gridList: {
+      width: 700,
+      height: 700,
+      marginTop: 150
+    },
+    icon: {
+      color: "rgba(255, 255, 255, 0.54)"
+    }
+  })
+);
 
 
-interface Props {
+interface Props extends RouteComponentProps<{ id: string }> { }
+
+export function getById() {
+  /* console.log(products.find(item => item.productID === 1)) */
+  return products.find(item => item.productID === 5);
 }
 
-function Product(props: { myFunc: ((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined; }) {
-  return (
-    <div>
-      <h1>Product page here</h1>
-      <Button onClick={props.myFunc} variant="contained" color="secondary">
-        add to cart
-            </Button>
-    </div>
-  );
+
+const data = getById();
+
+
+
+
+
+function Product(props: Props) {
+  const classes = useStyles();
+  const id = props.match.params.id
+  const product = products.find(item => item.productID === Number(id));
+  if (product) {
+    return (
+      <div className={classes.root}>
+        <GridList cellHeight={400} className={classes.gridList}>
+          <GridListTile key={product.img}>
+            <h1>Product page here</h1>
+            <p>{product.productID}</p>
+            <p>{product.img}</p>
+            <p>{product.price}</p>
+            <p>{product.title}</p>
+            {<img src={require('./../assets/' + '1.png')} alt={product.title} />}
+
+            <GridListTileBar
+              subtitle={product.title}
+              title={<span>{product.price} Kr</span>}
+              actionIcon={<IconButton aria-label={`info about ${product.title}`} className={classes.icon}> <Button variant="contained" color="secondary"> <ShoppingCartOutlinedIcon fontSize="inherit" style={{ fontSize: "20px" }} /> Buy{"  "}</Button> </IconButton>} />
+          </GridListTile>
+        </GridList>
+
+      </div >
+    );
+  }
+  else {
+    return <h1>product not found</h1>
+  }
+
 }
 
-
-export default Product
+export default Product;
 
