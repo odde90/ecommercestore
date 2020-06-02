@@ -5,6 +5,7 @@ import Navbar from './navbar';
 import Home from './gridList'
 import { Button } from '@material-ui/core';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { checkoutForm } from './checkoutForm';
 
 
 function App() {
@@ -24,6 +25,8 @@ function App() {
           <Switch>
             <Route exact path="/" render={() => <Product myFunc={addToCart} />} />
             <Route path="/Home" component={Home} />
+            <Route path="/CheckoutForm" component={checkoutForm} />
+
           </Switch>
           {/*           <Button variant="contained" color="secondary">
             Secondary
