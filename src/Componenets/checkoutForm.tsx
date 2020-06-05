@@ -9,6 +9,7 @@ import  Shipping from './shipping';
 import MyForm  from './payment'
 import { kMaxLength } from 'buffer';
 import { maxHeight } from '@material-ui/system';
+import { Button } from '@material-ui/core';
 
 export class checkoutForm extends Component  {
     state={
@@ -34,7 +35,7 @@ export class checkoutForm extends Component  {
         return (
             <div >
             {/* </div> <form  noValidate autoComplete="off">className={classes.root} */}
-        <form  noValidate autoComplete="off"  style={formStyle}>
+        <form autoComplete="on"  style={formStyle}>
            <h1>Check out</h1>
             <TextField
           label="First name"
@@ -43,7 +44,8 @@ export class checkoutForm extends Component  {
           name='firstName' 
           onChange={this.handleChange}
           inputProps={{
-            minlength : 3
+            minlength : 3,
+            required: true
           }} 
         />
           <TextField
@@ -85,6 +87,10 @@ export class checkoutForm extends Component  {
       <h3>Total:</h3>
 
       <MyForm/>
+
+      <Button variant="contained" color="primary" type='submit' href="#contained-buttons">
+  submit
+</Button>
               </form>
              </div>
         )
