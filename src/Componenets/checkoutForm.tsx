@@ -6,25 +6,27 @@ import { ChangeEvent } from 'react';
 import { EnterHandler } from 'react-transition-group/Transition';
 import  Shipping from './shipping';
 
-
+import MyForm  from './payment'
+import { kMaxLength } from 'buffer';
+import { maxHeight } from '@material-ui/system';
 
 export class checkoutForm extends Component  {
     state={
-        form: {
+        
             firstName: '',
             lastName: '',
             email: '',
             phone: '',
             adress: ''
-        }
+        
     }
     handleChange=(  e: React.ChangeEvent<HTMLInputElement>)=> {
         const { name, value } = e.currentTarget;
         this.setState({
-            form : { 
-             ...this.state.form,
+           
+             ...this.state,
              [ name]: value
-           }
+          
           }, ()=>{console.log(this.state)});  
     };
     render() {
@@ -40,22 +42,31 @@ export class checkoutForm extends Component  {
          // value={firstName}
           name='firstName' 
           onChange={this.handleChange}
+          inputProps={{
+            minlength : 3
+          }} 
         />
           <TextField
           label="Last name"
           style={containerStyle1}   
           name='lastName' 
-          onChange={this.handleChange}         
+          onChange={this.handleChange}  
+          inputProps={{
+            minlength : 3
+          }}   
         />
      
         <TextField
           label="Email"
+          type="email"
           style={containerStyle1}  
           name='email' 
-          onChange={this.handleChange}        
+          onChange={this.handleChange} 
+             
         />
         <TextField
           label="Phone number"
+          type="tel"
           style={containerStyle1}  
           name='phone' 
           onChange={this.handleChange}        
@@ -64,11 +75,16 @@ export class checkoutForm extends Component  {
         label="Adress"
         style={containerStyle1}  
         name='adress' 
-        onChange={this.handleChange}        
+        onChange={this.handleChange}   
+        inputProps={{
+          minlength : 3
+        }}      
       />
 
       <Shipping />
       <h3>Total:</h3>
+
+      <MyForm/>
               </form>
              </div>
         )

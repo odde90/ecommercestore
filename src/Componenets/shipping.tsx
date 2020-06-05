@@ -20,9 +20,9 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function Shipping(){
     const classes = useStyles();
-    const [state, setState] = React.useState<{  name: string }>({
+    const [state, setState] = React.useState<{ price: string }>({
     
-        name: 'str'
+        price: 'str'
         
       });
   
@@ -45,7 +45,7 @@ export default function Shipping(){
         <InputLabel htmlFor="age-native-required">Shipping method</InputLabel>
         <Select
           native
-          value={state.name}
+          value={state.price}
           onChange={handleChange}
           name="price"
           inputProps={{
