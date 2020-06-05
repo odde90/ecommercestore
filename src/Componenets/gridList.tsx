@@ -52,7 +52,13 @@ function Home() {
               <GridListTileBar
                 subtitle={product.title}
                 title={<span>{product.price} Kr</span>}
-                actionIcon={<IconButton aria-label={`info about ${product.title}`} className={classes.icon}> <Button variant="contained" color="secondary"> <ShoppingCartOutlinedIcon fontSize="inherit" style={{ fontSize: "20px" }} /> Buy{"  "}</Button> </IconButton>} />
+                actionIcon={<IconButton aria-label={`info about ${product.title}`}
+                 className={classes.icon}>
+                    <Button variant="contained" color="secondary">
+                       <ShoppingCartOutlinedIcon fontSize="inherit" style={{ fontSize: "20px" }} />
+                        Buy{"  "}
+                        </Button>
+                       </IconButton>} />
             </Link>
           </GridListTile>
         ))}
