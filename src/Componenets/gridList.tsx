@@ -46,13 +46,21 @@ function Home(props: Props) {
       <GridList cellHeight={400} className={classes.gridList}>
         {products.map((product: Product) => (
           <GridListTile key={product.img}>
-            <Link to={"/product/" + product.productID}>
-              {
-                <img
-                  src={require("./../assets/" + "1.png")}
-                  alt={product.title}
-                />
-              }
+
+            <Link to={'/product/' + product.productID}>
+
+              {<img src={require('./../assets/' + '1.png')} alt={product.title} />}
+
+              <GridListTileBar
+                subtitle={product.title}
+                title={<span>{product.price} Kr</span>}
+                actionIcon={<IconButton aria-label={`info about ${product.title}`}
+                 className={classes.icon}>
+                    <Button variant="contained" color="secondary">
+                       <ShoppingCartOutlinedIcon fontSize="inherit" style={{ fontSize: "20px" }} />
+                        Buy{"  "}
+                        </Button>
+                       </IconButton>} />
             </Link>
             <GridListTileBar
               subtitle={product.title}
