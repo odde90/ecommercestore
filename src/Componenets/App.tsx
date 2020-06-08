@@ -9,23 +9,33 @@ import { checkoutForm } from './checkoutForm';
 
 
 function App() {
+  const [cart, setCart] = useState(0);
+  const [cartItems, setCartItems] = useState([] as Product[]);
 
-
-  const [cart, setCart] = useState(0)
-
-  const addToCart = () => {
-    setCart(cart + 1)
-  }
+  const addToCart = (product: Product) => {
+    setCart(cart + 1);
+    let newProducts: Product[] = cartItems;
+    newProducts.push(product);
+    setCartItems(newProducts);
+    console.log(newProducts);
+  };
 
   return (
     <div className="App">
       <Fragment>
         <BrowserRouter>
-          <Navbar cartNumber={cart} />
+          <Navbar totalitems={cartItems} />
           <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/product/:id" component={Product} />
+
+            <Route
+              exact
+              path="/"
+              component={() => <Home addcartfun={addToCart} />}
+            />
+            <Route path="/product/:id" component={Productlist} />
+
             <Route path="/CheckoutForm" component={checkoutForm} />
+
 
           </Switch>
           {/*           <Button variant="contained" color="secondary">
@@ -35,6 +45,5 @@ function App() {
       </Fragment>
     </div>
   );
-
 }
-export default App 
+export default App;
