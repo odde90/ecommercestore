@@ -23,9 +23,6 @@ export  class swish extends Component  {
         // defaultValue="John Doe" 
             />
        
-          
-            
-      
               </form>
              </div>
         )

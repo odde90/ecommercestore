@@ -23,22 +23,25 @@ export default class MyForm extends Component {
               control={<Radio />}
               label="Credit Card"
             />
-            
+             {this.state.selected === 'credit' && <CreditCard/>}
             <FormControlLabel 
             value="swish" 
             control={<Radio />} 
             label="Swish" />
+            {this.state.selected === 'swish' && <p>I</p>}
+
 
             <FormControlLabel
               value="cash"
               control={<Radio />}
               label="Pay by cash when recieve"
             />
+            {this.state.selected === 'cash' && <p>H</p>}
+
 
           </RadioGroup>
-          {this.state.selected === 'credit' && <CreditCard/>}
-          {this.state.selected === 'swish' && <p>I</p>}
-          {this.state.selected === 'cash' && <p>H</p>}
+         
+          
         </FormControl>
       
        
