@@ -5,7 +5,8 @@ import SimpleModal from "./Modal";
 
 function Navbar(props: { totalitems: React.ReactNode }) {
   const modalHandel = () => {
-    SimpleModal();
+    /*     SimpleModal();
+     */
   };
 
   const contHandel = () => {
@@ -26,7 +27,8 @@ function Navbar(props: { totalitems: React.ReactNode }) {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <SimpleModal item={props.totalitems} />
+          {/*           <SimpleModal item={props.totalitems} />
+           */}{" "}
           <span>{() => contHandel}</span>
         </li>
       </ul>

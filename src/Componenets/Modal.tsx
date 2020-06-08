@@ -47,7 +47,7 @@ export default function SimpleModal(props: { totalitems: Product[] }) {
 
   const body = (
     <div style={modalStyle} className={classes.paper}>
-      <h2 id="simple-modal-title">{props.totalitems.title}</h2>
+      <h2 id="simple-modal-title">{props.totalitems}</h2>
       <p id="simple-modal-description">
         Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
       </p>
