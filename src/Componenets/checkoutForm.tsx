@@ -11,18 +11,22 @@ import { kMaxLength } from 'buffer';
 import { maxHeight, lineHeight } from '@material-ui/system';
 import { Button } from '@material-ui/core';
 import { normalize } from 'path';
+import { Link } from 'react-router-dom';
 
+ const initialState={
+        
+  firstName: '',
+  lastName: '',
+  email: '',
+  phone: '',
+  adress: '',
+  price: 0
+
+}
 export class checkoutForm extends Component  {
-    state={
-        
-            firstName: '',
-            lastName: '',
-            email: '',
-            phone: '',
-            adress: ''
-        
-    }
-    handleChange=(  e: React.ChangeEvent<HTMLInputElement>)=> {
+
+  state=initialState;
+    handleChange=(  e: React.ChangeEvent< any>)=> {
         const { name, value } = e.currentTarget;
         this.setState({
            
@@ -31,12 +35,18 @@ export class checkoutForm extends Component  {
           
           }, ()=>{console.log(this.state)});  
     };
+    handleSubmit=()=>{
+
+      this.setState(initialState)
+    }
+     
+  
     render() {
         //const { form: {firstName, lastName, email, phone ,adress} }  = this.state;
         return (
             <div>
             {/* </div> <form  noValidate autoComplete="off">className={classes.root} */}
-        <form  noValidate autoComplete="on"  style={formStyle}>
+        <form  autoComplete="on"  style={formStyle} >
            <h1>Check out</h1>
             <TextField
           label="First name"
@@ -90,16 +100,21 @@ export class checkoutForm extends Component  {
         }}      
       />
 
-      <Shipping />
-      <h3>Total:</h3>
+      <Shipping ship={this.handleChange}/>
+      <h3>Total: {this.state.price} kr</h3>
 
      <div style={containerStyle1}  >
      <MyForm/>
       </div> 
       <div>
-      <Button variant="contained" size='small' color="primary" type='submit' href="#contained-buttons">
+      <Link to={{ 
+          pathname: '/Receipt', 
+          state: {...this.state} 
+        }}>
+      <Button variant="contained" size='small' color="primary" type='submit' onClick={this.handleSubmit.bind(this)} href="/">
      submit
   </Button>
+  </Link>
   </div>
               </form>
              </div>

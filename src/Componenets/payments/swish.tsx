@@ -19,10 +19,7 @@ export  class swish extends Component  {
         <form  noValidate autoComplete="off" >
         <TextField
          label="Card Holder"
-         type="text"
-        // defaultValue="John Doe" 
-            />
-       
+         type="text" />
               </form>
              </div>
         )

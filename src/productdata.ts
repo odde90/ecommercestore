@@ -16,7 +16,7 @@ export const products: Product[] = [
     },
     {
         productID: 2,
-        img: '2.png',
+        img: '2.jpg',
         title: "Groom Classic",
         author: "author",
         price: 2500
@@ -24,21 +24,21 @@ export const products: Product[] = [
     {
 
         productID: 3,
-        img: '2.png',
+        img: '3.jpg',
         title: "Summer Suit",
         author: "author",
         price: 1800
     },
     {
         productID: 4,
-        img: '2.png',
+        img: '3.jpg',
         title: "Tiger of Sweden",
         author: "author",
         price: 3000
     },
     {
         productID: 5,
-        img: '2.png',
+        img: '2.jpg',
         title: "Party Style",
         author: "author",
         price: 3000
