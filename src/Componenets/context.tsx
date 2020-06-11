@@ -2,6 +2,7 @@ import React, { createContext, useState, PropsWithChildren } from "react";
 import { Product } from "../productdata";
 import { getThemeProps } from "@material-ui/styles";
 
+
 type Props = PropsWithChildren<{}>;
 
 interface ContextProps {
@@ -23,6 +24,8 @@ export function CartProvider(props: Props) {
     setCartItems(clonedCartItems);
   };
 
+  const [totalAmount, settotalAmount] = useState(100);
+
   return (
     <CartContext.Provider
       value={{
@@ -34,3 +37,21 @@ export function CartProvider(props: Props) {
     </CartContext.Provider>
   );
 }
+
+
+
+
+export const FormContext = createContext({
+  // firstName: String,
+  // lastName: String,
+  // email: String,
+  // phone: String,
+  // adress: String,
+  // price: Number
+  firstName: '',
+  lastName: '',
+  email: '',
+  phone: '',
+  adress: '',
+  price: 0
+});
