@@ -10,7 +10,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import ShoppingCartRoundedIcon from '@material-ui/icons/ShoppingCartRounded';
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 
@@ -61,7 +61,7 @@ export default function SimpleModal(/* props: Props */) {
     setOpen(false);
   };
 
-  const handleCheckout = () => {};
+  const handleCheckout = () => { };
 
   const body = (
     <div>
@@ -98,7 +98,7 @@ export default function SimpleModal(/* props: Props */) {
   return (
     <div>
       <button type="button" onClick={handleOpen}>
-        <ShoppingCartIcon /> {cartItems.length}
+        <ShoppingCartRoundedIcon style={{ color: "green", }} /> {cartItems.length}
       </button>
 
       <Modal
