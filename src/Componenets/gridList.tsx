@@ -38,7 +38,7 @@ import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import { Product } from "../productdata";
 import { CartContext } from "./context";
 
-interface Props {}
+interface Props { }
 
 function Home(props: Props) {
   const { addToCart } = useContext(CartContext);
@@ -53,16 +53,7 @@ function Home(props: Props) {
 
               {<img src={require('./../assets/' + '1.png')} alt={product.title} />}
 
-              <GridListTileBar
-                subtitle={product.title}
-                title={<span>{product.price} Kr</span>}
-                actionIcon={<IconButton aria-label={`info about ${product.title}`}
-                 className={classes.icon}>
-                    <Button variant="contained" color="secondary">
-                       <ShoppingCartOutlinedIcon fontSize="inherit" style={{ fontSize: "20px" }} />
-                        Buy{"  "}
-                        </Button>
-                       </IconButton>} />
+
             </Link>
             <GridListTileBar
               subtitle={product.title}
@@ -72,7 +63,7 @@ function Home(props: Props) {
                   aria-label={`info about ${product.title}`}
                   className={classes.icon}
                 >
-                  <Button onClick={() => addToCart(product)}>
+                  <Button variant="contained" color="secondary" onClick={() => addToCart(product)}>
                     <ShoppingCartOutlinedIcon
                       fontSize="inherit"
                       style={{ fontSize: "20px" }}
