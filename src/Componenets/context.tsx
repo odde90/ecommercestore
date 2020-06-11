@@ -8,11 +8,13 @@ type Props = PropsWithChildren<{}>;
 interface ContextProps {
   cartItems: Product[];
   addToCart: (product: Product) => void;
+  totalAmount: Number;
 }
 
 export const CartContext = createContext<ContextProps>({
   cartItems: [],
-  addToCart: (product: Product) => {}
+  addToCart: (product: Product) => {},
+  totalAmount: 0
 });
 
 export function CartProvider(props: Props) {
@@ -24,13 +26,16 @@ export function CartProvider(props: Props) {
     setCartItems(clonedCartItems);
   };
 
+
   const [totalAmount, settotalAmount] = useState(100);
+
 
   return (
     <CartContext.Provider
       value={{
         cartItems,
-        addToCart
+        addToCart,
+        totalAmount
       }}
     >
       {props.children}
