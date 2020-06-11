@@ -8,6 +8,11 @@ import { Button } from "@material-ui/core";
 import { products, Product } from "../productdata";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { CartProvider } from "./context";
+import { checkoutForm } from './checkoutForm';
+import { adminPage } from './adminPage';
+import Receipt from './receipt';
+
+
 
 
 function App() {
@@ -16,24 +21,24 @@ function App() {
       <Fragment>
         <BrowserRouter>
 
-          <Navbar totalitems={cartItems} />
-          <Switch>
-
-            <Route
-              exact
-              path="/"
-              component={() => <Home addcartfun={addToCart} />}
-            />
-            <Route path="/product/:id" component={Productlist} />
-
-            <Route path="/CheckoutForm" component={checkoutForm} />
-
-
-          </Switch>
+          <CartProvider>
+            <Navbar />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/product/:id" component={Productlist} />
+              <Route path="/CheckoutForm" component={checkoutForm} />
+              <Route path="/Admin" component={adminPage} />
+              <Route path="/Receipt" component={Receipt} />
+            </Switch>
+            {/*           <Button variant="contained" color="secondary">
+              Secondary
+            </Button> */}
+          </CartProvider>
 
         </BrowserRouter>
       </Fragment>
     </div>
   );
+
 }
-export default App;
+export default App 

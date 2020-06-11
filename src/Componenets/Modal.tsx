@@ -10,8 +10,10 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
+
 function rand() {
   return Math.round(Math.random() * 20) - 10;
 }
@@ -42,10 +44,6 @@ const useStyles = makeStyles((theme: Theme) =>
     }
   })
 );
-/* interface Props {
-  totalitems: React.ReactNode;
-   totalitems: Product[]; 
-} */
 
 export default function SimpleModal(/* props: Props */) {
   const { cartItems } = useContext(CartContext);
@@ -100,8 +98,10 @@ export default function SimpleModal(/* props: Props */) {
   return (
     <div>
       <button type="button" onClick={handleOpen}>
-        Cart
+        <ShoppingCartIcon /> {cartItems.length}
       </button>
+
+
       <Modal
         open={open}
         onClose={handleClose}

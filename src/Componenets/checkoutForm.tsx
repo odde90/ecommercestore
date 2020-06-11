@@ -8,19 +8,25 @@ import  Shipping from './shipping';
 
 import MyForm  from './payment'
 import { kMaxLength } from 'buffer';
-import { maxHeight } from '@material-ui/system';
+import { maxHeight, lineHeight } from '@material-ui/system';
+import { Button } from '@material-ui/core';
+import { normalize } from 'path';
+import { Link } from 'react-router-dom';
 
+ const initialState={
+        
+  firstName: '',
+  lastName: '',
+  email: '',
+  phone: '',
+  adress: '',
+  price: 0
+
+}
 export class checkoutForm extends Component  {
-    state={
-        
-            firstName: '',
-            lastName: '',
-            email: '',
-            phone: '',
-            adress: ''
-        
-    }
-    handleChange=(  e: React.ChangeEvent<HTMLInputElement>)=> {
+
+  state=initialState;
+    handleChange=(  e: React.ChangeEvent< any>)=> {
         const { name, value } = e.currentTarget;
         this.setState({
            
@@ -29,28 +35,37 @@ export class checkoutForm extends Component  {
           
           }, ()=>{console.log(this.state)});  
     };
+    handleSubmit=()=>{
+
+      this.setState(initialState)
+    }
+     
+  
     render() {
         //const { form: {firstName, lastName, email, phone ,adress} }  = this.state;
         return (
-            <div >
+            <div>
             {/* </div> <form  noValidate autoComplete="off">className={classes.root} */}
-        <form  noValidate autoComplete="off"  style={formStyle}>
+        <form  autoComplete="on"  style={formStyle} >
            <h1>Check out</h1>
             <TextField
           label="First name"
           style={containerStyle1}        
-         // value={firstName}
           name='firstName' 
+          variant="outlined"
           onChange={this.handleChange}
           inputProps={{
-            minlength : 3
+            minlength : 3,
+            required: true
           }} 
+          
         />
           <TextField
           label="Last name"
           style={containerStyle1}   
           name='lastName' 
           onChange={this.handleChange}  
+          variant="outlined"
           inputProps={{
             minlength : 3
           }}   
@@ -59,8 +74,10 @@ export class checkoutForm extends Component  {
         <TextField
           label="Email"
           type="email"
+          id="filled-size-small"
           style={containerStyle1}  
           name='email' 
+          variant="outlined"
           onChange={this.handleChange} 
              
         />
@@ -69,22 +86,36 @@ export class checkoutForm extends Component  {
           type="tel"
           style={containerStyle1}  
           name='phone' 
-          onChange={this.handleChange}        
+          onChange={this.handleChange}    
+          variant="outlined"    
         />
         <TextField
         label="Adress"
         style={containerStyle1}  
         name='adress' 
         onChange={this.handleChange}   
+        variant="outlined"
         inputProps={{
           minlength : 3
         }}      
       />
 
-      <Shipping />
-      <h3>Total:</h3>
+      <Shipping ship={this.handleChange}/>
+      <h3>Total: {this.state.price} kr</h3>
 
-      <MyForm/>
+     <div style={containerStyle1}  >
+     <MyForm/>
+      </div> 
+      <div>
+      <Link to={{ 
+          pathname: '/Receipt', 
+          state: {...this.state} 
+        }}>
+      <Button variant="contained" size='small' color="primary" type='submit' onClick={this.handleSubmit.bind(this)} href="/">
+     submit
+  </Button>
+  </Link>
+  </div>
               </form>
              </div>
         )
@@ -99,6 +130,8 @@ const formStyle: React.CSSProperties={
     marginRight: 'auto',
      display: 'flex',
      flexDirection: 'column'
+
+
      //flexWrap: 'wrap',
    
 
@@ -108,8 +141,7 @@ const containerStyle1: React.CSSProperties={
     width: '40%',
     marginLeft: 'auto',
     marginRight: 'auto',
-    color: 'white',
-    paddingBottom: 0,
+    paddingBottom: 10,
     marginTop: 0,
     fontWeight: 500
     

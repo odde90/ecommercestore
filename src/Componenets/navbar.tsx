@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { Container, colors } from "@material-ui/core";
 import SimpleModal from "./Modal";
 import { products, Product } from "../productdata";
 import { CartContext } from "./context";
@@ -21,7 +20,7 @@ function Navbar() {
 
   return (
     <nav>
-      <h2>ONLINE SHOP</h2>
+      <h2 className="glow">ONLINE SHOP</h2>
       <ul>
         <li>
           <Link to="/">Sign in</Link>
@@ -35,7 +34,6 @@ function Navbar() {
         <li>
           <SimpleModal /* {onclick = () => SimpleModal} */ />
           <span /* onClick={() => alert("show modal...")} */>
-            {cartItems.length}
           </span>
         </li>
       </ul>

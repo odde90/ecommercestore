@@ -5,7 +5,9 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import { FormHelperText } from '@material-ui/core';
 
-
+interface Props{
+ship: (e:React.ChangeEvent< any>)=>void;
+}
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     formControl: {
@@ -18,7 +20,10 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export default function Shipping(){
+export default function Shipping(props: Props){
+  
+  
+
     const classes = useStyles();
     const [state, setState] = React.useState<{ price: string }>({
     
@@ -38,15 +43,13 @@ export default function Shipping(){
 
         return dt.getFullYear() + "/" + (dt.getMonth() + 1) + "/" + (dt.getDate() +days);
       }
-      console.log(state)
     return(
         <div>
             <FormControl required className={classes.formControl}>
         <InputLabel htmlFor="age-native-required">Shipping method</InputLabel>
         <Select
           native
-          value={state.price}
-          onChange={handleChange}
+          onChange={props.ship}
           name="price"
           inputProps={{
             id: 'age-native-required',
