@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Theme, createStyles, makeStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
@@ -36,10 +36,12 @@ import image from "../assets/1.png";
 import { Button, Typography } from "@material-ui/core";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import { Product } from "../productdata";
-interface Props {
-  addcartfun: (product: Product) => void;
-}
+import { CartContext } from "./context";
+
+interface Props {}
+
 function Home(props: Props) {
+  const { addToCart } = useContext(CartContext);
   const classes = useStyles();
   return (
     <div className={classes.root}>
@@ -62,7 +64,7 @@ function Home(props: Props) {
                   aria-label={`info about ${product.title}`}
                   className={classes.icon}
                 >
-                  <Button onClick={() => props.addcartfun(product)}>
+                  <Button onClick={() => addToCart(product)}>
                     <ShoppingCartOutlinedIcon
                       fontSize="inherit"
                       style={{ fontSize: "20px" }}

@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import { products, Product } from "../productdata";
-
+import { CartContext } from "./context";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableContainer from "@material-ui/core/TableContainer";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import Paper from "@material-ui/core/Paper";
 function rand() {
   return Math.round(Math.random() * 20) - 10;
 }
@@ -27,18 +34,27 @@ const useStyles = makeStyles((theme: Theme) =>
       border: "2px solid #000",
       boxShadow: theme.shadows[5],
       padding: theme.spacing(2, 4, 3)
+    },
+    table: {
+      minWidth: 650
     }
   })
 );
+/* interface Props {
+  totalitems: React.ReactNode;
+   totalitems: Product[]; 
+} */
 
-export default function SimpleModal(props: { totalitems: Product[] }) {
+export default function SimpleModal(/* props: Props */) {
+  const { cartItems } = useContext(CartContext);
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = React.useState(getModalStyle);
   const [open, setOpen] = React.useState(false);
-  console.log(props.totalitems);
+
   const handleOpen = () => {
-    setOpen(true);
+    /*     console.log(cartItems[0].productID);
+     */ setOpen(true);
   };
 
   const handleClose = () => {
@@ -46,12 +62,26 @@ export default function SimpleModal(props: { totalitems: Product[] }) {
   };
 
   const body = (
-    <div style={modalStyle} className={classes.paper}>
-      <h2 id="simple-modal-title">{props.totalitems}</h2>
-      <p id="simple-modal-description">
-        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-      </p>
-    </div>
+    <TableContainer component={Paper}>
+      <h2 id="simple-modal-title">Cart Items</h2>
+      <Table className={classes.table} size="small" aria-label="a dense table">
+        <TableHead>
+          <TableRow>
+            <TableCell align="right">Items</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {cartItems.map(cartItem => (
+            <TableRow key={cartItem.productID}>
+              <TableCell component="th" scope="row">
+                {cartItem.title}
+              </TableCell>
+              <TableCell align="right">{cartItem.price}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
 
   return (
@@ -69,4 +99,21 @@ export default function SimpleModal(props: { totalitems: Product[] }) {
       </Modal>
     </div>
   );
+}
+
+{
+  /* <div style={modalStyle} className={classes.paper}>
+      <h2 id="simple-modal-title">Cart Items</h2>
+
+      <p id="simple-modal-description">
+        <ul id="cartItems">
+          {cartItems.map(cartItem => (
+            <li key={cartItem.productID}>
+              {cartItem.title} - {cartItem.price}
+            </li>
+          ))}
+        </ul>
+      </p>
+     
+    </div> */
 }
