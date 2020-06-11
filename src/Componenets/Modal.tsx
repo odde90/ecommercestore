@@ -100,20 +100,3 @@ export default function SimpleModal(/* props: Props */) {
     </div>
   );
 }
-
-{
-  /* <div style={modalStyle} className={classes.paper}>
-      <h2 id="simple-modal-title">Cart Items</h2>
-
-      <p id="simple-modal-description">
-        <ul id="cartItems">
-          {cartItems.map(cartItem => (
-            <li key={cartItem.productID}>
-              {cartItem.title} - {cartItem.price}
-            </li>
-          ))}
-        </ul>
-      </p>
-     
-    </div> */
-}
