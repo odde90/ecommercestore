@@ -12,7 +12,7 @@ export default class MyForm extends Component {
       this.setState({ selected: e.target.value });
     };
     render() {
-        console.log(this.state);
+       
       const { selected } = this.state;
       return (
           
