@@ -11,6 +11,8 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -59,27 +61,38 @@ export default function SimpleModal(/* props: Props */) {
     setOpen(false);
   };
 
+  const handleCheckout = () => {};
+
   const body = (
-    <TableContainer component={Paper}>
-      <h2 id="simple-modal-title">Cart Items</h2>
-      <Table className={classes.table} size="small" aria-label="a dense table">
-        <TableHead>
-          <TableRow>
-            <TableCell align="right">Items</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {cartItems.map(cartItem => (
-            <TableRow key={cartItem.productID}>
-              <TableCell component="th" scope="row">
-                {cartItem.title}
-              </TableCell>
-              <TableCell align="right">{cartItem.price}</TableCell>
+    <div>
+      <TableContainer component={Paper}>
+        <h2 id="simple-modal-title">Cart Items</h2>
+        <Table
+          className={classes.table}
+          size="small"
+          aria-label="a dense table"
+        >
+          <TableHead>
+            <TableRow>
+              <TableCell align="right">Items</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+          </TableHead>
+          <TableBody>
+            {cartItems.map(cartItem => (
+              <TableRow key={cartItem.productID}>
+                <TableCell component="th" scope="row">
+                  {cartItem.title}
+                </TableCell>
+                <TableCell align="right">{cartItem.price}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+      <Link to="/checkoutForm">
+        <button type="button">Checkout</button>
+      </Link>
+    </div>
   );
 
   return (
