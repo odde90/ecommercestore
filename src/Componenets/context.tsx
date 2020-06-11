@@ -41,17 +41,3 @@ export function CartProvider(props: Props) {
 
 
 
-export const FormContext = createContext({
-  // firstName: String,
-  // lastName: String,
-  // email: String,
-  // phone: String,
-  // adress: String,
-  // price: Number
-  firstName: '',
-  lastName: '',
-  email: '',
-  phone: '',
-  adress: '',
-  price: 0
-});

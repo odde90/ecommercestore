@@ -26,8 +26,6 @@ import { CartContext } from './context';
 
 }
 export class checkoutForm extends Component  {
- // const { cartItems, totalAmount } = useContext(CartContext);
-
   state=initialState;
     handleChange=(  e: React.ChangeEvent< any>)=> {
         const { name, value } = e.currentTarget;
@@ -55,7 +53,6 @@ export class checkoutForm extends Component  {
       }}/>);
     else   return (
             <div>
-            {/* </div> <form  noValidate autoComplete="off">className={classes.root} */}
         <form  autoComplete="on"  style={formStyle} >
            <h1>Check out</h1>
             <TextField
@@ -129,17 +126,9 @@ export class checkoutForm extends Component  {
       </div> 
       <div>
       <Button variant="contained" size='small' color="primary" type='submit' onClick={this.handleSubmit.bind(this)}
-      // component={Link}
-      // to={{ 
-      //   pathname: '/Receipt', 
-      //   state: {
-      //     ...this.state
-      //   } 
-      // }}
        >
      submit
   </Button>
-  {/* </Link> */}
   </div>
               </form>
              </div>
