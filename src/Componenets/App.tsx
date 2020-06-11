@@ -1,3 +1,4 @@
+
 import React, { Component, Fragment, useState } from "react";
 import "./App.css";
 import Productlist from "./Product";
@@ -8,21 +9,28 @@ import { products, Product } from "../productdata";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { CartProvider } from "./context";
 
+
 function App() {
   return (
     <div className="App">
       <Fragment>
         <BrowserRouter>
-          <CartProvider>
-            <Navbar />
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route path="/product/:id" component={Productlist} />
-            </Switch>
-            {/*           <Button variant="contained" color="secondary">
-              Secondary
-            </Button> */}
-          </CartProvider>
+
+          <Navbar totalitems={cartItems} />
+          <Switch>
+
+            <Route
+              exact
+              path="/"
+              component={() => <Home addcartfun={addToCart} />}
+            />
+            <Route path="/product/:id" component={Productlist} />
+
+            <Route path="/CheckoutForm" component={checkoutForm} />
+
+
+          </Switch>
+
         </BrowserRouter>
       </Fragment>
     </div>
