@@ -1,3 +1,4 @@
+
 import React, { Component, Fragment, useState } from "react";
 import "./App.css";
 import Productlist from "./Product";
@@ -13,11 +14,13 @@ import Receipt from './receipt';
 
 
 
+
 function App() {
   return (
     <div className="App">
       <Fragment>
         <BrowserRouter>
+
           <CartProvider>
             <Navbar />
             <Switch>
@@ -31,6 +34,7 @@ function App() {
               Secondary
             </Button> */}
           </CartProvider>
+
         </BrowserRouter>
       </Fragment>
     </div>
