@@ -1,22 +1,46 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { Container, colors } from '@material-ui/core'
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { Container, colors } from "@material-ui/core";
+import SimpleModal from "./Modal";
+import { products, Product } from "../productdata";
+import { CartContext } from "./context";
 
-
-function Navbar(props: { cartNumber: React.ReactNode }) {
-  return (
-    <nav >
-      <h2>ONLINE SHOP</h2>
-      <ul>
-        <li><Link to="/">Sign in</Link></li>
-        <li><Link to="/TitlebarGridList">Products</Link></li>
-        <li><Link to="/">Home</Link></li>
-        <li><a href="#">Cart <span>{props.cartNumber}</span></a></li>
-      </ul>
-    </nav>
-  )
+interface Props {
+  totalitems: Product[];
+  totalitemsCount: number;
 }
 
-export default Navbar
+/* props: { totalitems: React.ReactNode }
+ */
+function Navbar() {
+  const { cartItems } = useContext(CartContext);
+  console.log(cartItems);
+  const modalHandel = () => {
+    SimpleModal();
+  };
 
+  return (
+    <nav>
+      <h2>ONLINE SHOP</h2>
+      <ul>
+        <li>
+          <Link to="/">Sign in</Link>
+        </li>
+        <li>
+          <Link to="/Product">Product</Link>
+        </li>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <SimpleModal /* {onclick = () => SimpleModal} */ />
+          <span /* onClick={() => alert("show modal...")} */>
+            {cartItems.length}
+          </span>
+        </li>
+      </ul>
+    </nav>
+  );
+}
 
+export default Navbar;

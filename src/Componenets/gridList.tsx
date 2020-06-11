@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Theme, createStyles, makeStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
@@ -6,6 +6,10 @@ import GridListTileBar from "@material-ui/core/GridListTileBar";
 import ListSubheader from "@material-ui/core/ListSubheader";
 import IconButton from "@material-ui/core/IconButton";
 import InfoIcon from "@material-ui/icons/Info";
+import { RouteComponentProps } from "react-router-dom";
+import { products } from "../productdata";
+import { BrowserRouter, Router, Switch, Link, Route } from "react-router-dom";
+
 /* eslint-disable import/first */
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -26,77 +30,54 @@ const useStyles = makeStyles((theme: Theme) =>
     }
   })
 );
+
 /* The example data is structured as follows: */
 import image from "../assets/1.png";
 import { Button, Typography } from "@material-ui/core";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
-const assets = [
-  {
-    productID: 1,
-    img: image,
-    title: "Dark Blue",
-    author: "author",
-    prise: "5000"
-  },
-  {
-    productID: 2,
-    img: image,
-    title: "Groom Classic",
-    author: "author",
-    prise: "2500"
-  },
-  {
-    productID: 3,
-    img: image,
-    title: "Summer Suit",
-    author: "author",
-    prise: "1800"
-  },
-  {
-    productID: 4,
-    img: image,
-    title: "Tiger of Sweden",
-    author: "author",
-    prise: "2000"
-  },
-  {
-    productID: 5,
-    img: image,
-    title: "Party Style",
-    author: "author",
-    prise: "3000"
-  }
-];
+import { Product } from "../productdata";
+import { CartContext } from "./context";
 
-export default function TitlebarGridList(props: { myFunc: () => void }) {
+interface Props {}
+
+function Home(props: Props) {
+  const { addToCart } = useContext(CartContext);
   const classes = useStyles();
   return (
     <div className={classes.root}>
       <GridList cellHeight={400} className={classes.gridList}>
-        {/*         <GridListTile key="Subheader" cols={2} style={{ height: "auto" }}>
-          <ListSubheader component="div">eShop</ListSubheader>
-        </GridListTile> */}
-        {assets.map(tile => (
-          <GridListTile key={tile.img}>
-            <img src={tile.img} alt={tile.title} />
+        {products.map((product: Product) => (
+          <GridListTile key={product.img}>
+
+            <Link to={'/product/' + product.productID}>
+
+              {<img src={require('./../assets/' + '1.png')} alt={product.title} />}
+
+              <GridListTileBar
+                subtitle={product.title}
+                title={<span>{product.price} Kr</span>}
+                actionIcon={<IconButton aria-label={`info about ${product.title}`}
+                 className={classes.icon}>
+                    <Button variant="contained" color="secondary">
+                       <ShoppingCartOutlinedIcon fontSize="inherit" style={{ fontSize: "20px" }} />
+                        Buy{"  "}
+                        </Button>
+                       </IconButton>} />
+            </Link>
             <GridListTileBar
-              subtitle={tile.title}
-              title={<span>{tile.prise} Kr</span>}
+              subtitle={product.title}
+              title={<span>{product.price} Kr</span>}
               actionIcon={
                 <IconButton
-                  aria-label={`info about ${tile.title}`}
+                  aria-label={`info about ${product.title}`}
                   className={classes.icon}
                 >
-                  <Button
-                    onClick={props.myFunc}
-                    variant="contained"
-                    color="secondary"
-                  >
+                  <Button onClick={() => addToCart(product)}>
                     <ShoppingCartOutlinedIcon
                       fontSize="inherit"
                       style={{ fontSize: "20px" }}
                     />
-                    Buy{"  "}
+                    Buy
                   </Button>
                 </IconButton>
               }
@@ -107,3 +88,8 @@ export default function TitlebarGridList(props: { myFunc: () => void }) {
     </div>
   );
 }
+
+export default Home;
+
+/* variant="contained"
+                    color="secondary" */
