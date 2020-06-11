@@ -53,7 +53,6 @@ function Home(props: Props) {
 
               {<img src={require("./../assets/" + product.img)} alt={product.title} />}
 
-
             </Link>
             <GridListTileBar
               subtitle={product.title}

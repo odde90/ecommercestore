@@ -7,6 +7,11 @@ import { Button } from "@material-ui/core";
 import { products, Product } from "../productdata";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { CartProvider } from "./context";
+import { checkoutForm } from './checkoutForm';
+import { adminPage } from './adminPage';
+import Receipt from './receipt';
+
+
 
 function App() {
   return (
@@ -18,6 +23,9 @@ function App() {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/product/:id" component={Productlist} />
+              <Route path="/CheckoutForm" component={checkoutForm} />
+              <Route path="/Admin" component={adminPage} />
+              <Route path="/Receipt" component={Receipt} />
             </Switch>
             {/*           <Button variant="contained" color="secondary">
               Secondary
@@ -27,5 +35,6 @@ function App() {
       </Fragment>
     </div>
   );
+
 }
-export default App;
+export default App 
