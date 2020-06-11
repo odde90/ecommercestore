@@ -6,7 +6,7 @@
   text-align: center;
 }
 nav {
-  background-color: rgb(27, 22, 22);
+  background-color: rgb(218, 53, 53);
   display: flex;
   justify-content: space-between;
   padding: 25px 40px;
@@ -19,4 +19,7 @@ nav ul li {
 nav li a {
   text-decoration: none;
   padding: 10px 15px;
+}
+.MuiGridListTile-tile a img {
+  height: 100%;
 }
