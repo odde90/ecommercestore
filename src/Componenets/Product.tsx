@@ -1,14 +1,13 @@
 import React from "react";
-import { products } from '../productdata'
-import { RouteComponentProps, match } from 'react-router'
-import Home from './gridList'
-import GridListTile from '@material-ui/core/GridListTile';
-import GridListTileBar from '@material-ui/core/GridListTileBar';
+import { products } from "../productdata";
+import { RouteComponentProps, match } from "react-router";
+import Home from "./gridList";
+import GridListTile from "@material-ui/core/GridListTile";
+import GridListTileBar from "@material-ui/core/GridListTileBar";
 import IconButton from "@material-ui/core/IconButton";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import { Button, GridList } from "@material-ui/core";
 import { Theme, createStyles, makeStyles } from "@material-ui/core/styles";
-
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -30,24 +29,18 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-
-interface Props extends RouteComponentProps<{ id: string }> { }
+interface Props extends RouteComponentProps<{ id: string }> {}
 
 export function getById() {
   /* console.log(products.find(item => item.productID === 1)) */
   return products.find(item => item.productID === 5);
 }
 
-
 const data = getById();
-
-
-
-
 
 function Product(props: Props) {
   const classes = useStyles();
-  const id = props.match.params.id
+  const id = props.match.params.id;
   const product = products.find(item => item.productID === Number(id));
   if (product) {
     return (
@@ -59,23 +52,40 @@ function Product(props: Props) {
             <p>{product.img}</p>
             <p>{product.price}</p>
             <p>{product.title}</p>
-            {<img src={require('./../assets/' + '1.png')} alt={product.title} />}
+            {
+              <img
+                src={require("./../assets/" + "1.png")}
+                alt={product.title}
+              />
+            }
 
             <GridListTileBar
               subtitle={product.title}
               title={<span>{product.price} Kr</span>}
-              actionIcon={<IconButton aria-label={`info about ${product.title}`} className={classes.icon}> <Button variant="contained" color="secondary"> <ShoppingCartOutlinedIcon fontSize="inherit" style={{ fontSize: "20px" }} /> Buy{"  "}</Button> </IconButton>} />
+              actionIcon={
+                <IconButton
+                  aria-label={`info about ${product.title}`}
+                  className={classes.icon}
+                >
+                  {" "}
+                  <Button variant="contained" color="secondary">
+                    {" "}
+                    <ShoppingCartOutlinedIcon
+                      fontSize="inherit"
+                      style={{ fontSize: "20px" }}
+                    />{" "}
+                    Buy{"  "}
+                  </Button>{" "}
+                </IconButton>
+              }
+            />
           </GridListTile>
         </GridList>
-
-      </div >
+      </div>
     );
+  } else {
+    return <h1>product not found</h1>;
   }
-  else {
-    return <h1>product not found</h1>
-  }
-
 }
 
 export default Product;
-
