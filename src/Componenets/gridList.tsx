@@ -51,7 +51,7 @@ function Home(props: Props) {
 
             <Link to={'/product/' + product.productID}>
 
-              {<img src={require('./../assets/' + '1.png')} alt={product.title} />}
+              {<img src={require("./../assets/" + product.img)} alt={product.title} />}
 
             </Link>
             <GridListTileBar

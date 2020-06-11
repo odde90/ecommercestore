@@ -8,6 +8,7 @@ import IconButton from "@material-ui/core/IconButton";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import { Button, GridList } from "@material-ui/core";
 import { Theme, createStyles, makeStyles } from "@material-ui/core/styles";
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -29,7 +30,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-interface Props extends RouteComponentProps<{ id: string }> {}
+interface Props extends RouteComponentProps<{ id: string }> { }
 
 export function getById() {
   /* console.log(products.find(item => item.productID === 1)) */
@@ -47,14 +48,10 @@ function Product(props: Props) {
       <div className={classes.root}>
         <GridList cellHeight={400} className={classes.gridList}>
           <GridListTile key={product.img}>
-            <h1>Product page here</h1>
-            <p>{product.productID}</p>
-            <p>{product.img}</p>
-            <p>{product.price}</p>
-            <p>{product.title}</p>
+
             {
               <img
-                src={require("./../assets/" + "1.png")}
+                src={require("./../assets/" + product.img)}
                 alt={product.title}
               />
             }
@@ -79,8 +76,20 @@ function Product(props: Props) {
                 </IconButton>
               }
             />
+
           </GridListTile>
+
+
+          <Typography variant="body1" gutterBottom>
+            <h1>{product.title}</h1>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
+            unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
+            dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+      </Typography>
+
+
         </GridList>
+
       </div>
     );
   } else {

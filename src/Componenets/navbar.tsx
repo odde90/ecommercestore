@@ -20,7 +20,7 @@ function Navbar() {
 
   return (
     <nav>
-      <h2>ONLINE SHOP</h2>
+      <h2 className="glow">ONLINE SHOP</h2>
       <ul>
         <li>
           <Link to="/">Sign in</Link>
