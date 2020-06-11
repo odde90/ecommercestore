@@ -10,6 +10,8 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+
 function rand() {
   return Math.round(Math.random() * 20) - 10;
 }
@@ -40,10 +42,6 @@ const useStyles = makeStyles((theme: Theme) =>
     }
   })
 );
-/* interface Props {
-  totalitems: React.ReactNode;
-   totalitems: Product[]; 
-} */
 
 export default function SimpleModal(/* props: Props */) {
   const { cartItems } = useContext(CartContext);
@@ -87,8 +85,10 @@ export default function SimpleModal(/* props: Props */) {
   return (
     <div>
       <button type="button" onClick={handleOpen}>
-        Cart
+        <ShoppingCartIcon /> {cartItems.length}
       </button>
+
+
       <Modal
         open={open}
         onClose={handleClose}
@@ -99,21 +99,4 @@ export default function SimpleModal(/* props: Props */) {
       </Modal>
     </div>
   );
-}
-
-{
-  /* <div style={modalStyle} className={classes.paper}>
-      <h2 id="simple-modal-title">Cart Items</h2>
-
-      <p id="simple-modal-description">
-        <ul id="cartItems">
-          {cartItems.map(cartItem => (
-            <li key={cartItem.productID}>
-              {cartItem.title} - {cartItem.price}
-            </li>
-          ))}
-        </ul>
-      </p>
-     
-    </div> */
 }
