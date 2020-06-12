@@ -121,7 +121,7 @@ export class checkoutForm extends Component  {
       />
 
       <Shipping ship={this.handleChange}/>
-      <h3>Total: {+this.state.price+this.context.totalAmount} kr</h3>
+      <h3>Total: {+this.state.price+ (this.context.getTotalAmount())} kr</h3>
 
      <div   >
      <Payment />
