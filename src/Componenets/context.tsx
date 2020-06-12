@@ -9,12 +9,14 @@ interface ContextProps {
   cartItems: Product[];
   addToCart: (product: Product) => void;
   getTotalAmount: () => number;
+  removeFromCart: ()=>void
 }
 
 export const CartContext = createContext<ContextProps>({
   cartItems: [],
   addToCart: (product: Product) => {},
-  getTotalAmount: () => 1337
+  getTotalAmount: () => 1337,
+  removeFromCart: ()=>{}
 });
 
 export function CartProvider(props: Props) {
@@ -26,8 +28,10 @@ export function CartProvider(props: Props) {
     setCartItems(clonedCartItems);
   };
 
-  const removeFromCart = (product: Product) => {
-    /* somve code here */
+  const removeFromCart = () => {
+    let clonedCartItems: Product[] = Object.assign([]);
+   
+    setCartItems(clonedCartItems);
   };
 
   const getTotalAmount = () => {
@@ -43,7 +47,8 @@ export function CartProvider(props: Props) {
       value={{
         cartItems,
         addToCart,
-        getTotalAmount
+        getTotalAmount,
+        removeFromCart
       }}
 
     >

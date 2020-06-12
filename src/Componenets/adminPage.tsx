@@ -16,12 +16,11 @@ export class adminPage extends Component  {
            
              ...this.state,
              [ name]: value
-          }, ()=>{console.log(this.state)});  
+          });  
     };
      
   
     render() {
-        //const { form: {firstName, lastName, email, phone ,adress} }  = this.state;
         return (
             <div>
              { this.state.isLogged  &&  <AdminForm />}

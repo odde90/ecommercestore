@@ -38,7 +38,8 @@ export default class Payment extends Component {
               placeholder="personal number"
               inputProps={{
                 minlength : 10,
-                maxlength: 10
+                maxlength: 10,
+                required: true
               
               }} />}
 
@@ -75,3 +76,7 @@ export default class Payment extends Component {
     
    
 }
+
+
+
+       

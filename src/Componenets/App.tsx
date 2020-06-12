@@ -30,9 +30,7 @@ function App() {
               <Route path="/Admin" component={adminPage} />
               <Route path="/Receipt" component={Receipt} />
             </Switch>
-            {/*           <Button variant="contained" color="secondary">
-              Secondary
-            </Button> */}
+          
           </CartProvider>
 
         </BrowserRouter>

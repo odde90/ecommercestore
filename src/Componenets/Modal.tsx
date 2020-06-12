@@ -45,11 +45,10 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function SimpleModal(/* props: Props */) {
+export default function SimpleModal() {
   const { cartItems, getTotalAmount } = useContext(CartContext);
 
   const classes = useStyles();
-  // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = React.useState(getModalStyle);
   const [open, setOpen] = React.useState(false);
 
@@ -66,7 +65,7 @@ export default function SimpleModal(/* props: Props */) {
 
   const body = (
     <div>
-    {/* <CartContext.Provider value={{...,totalAmount}}/> */}
+    
       <TableContainer component={Paper}>
         <h2 id="simple-modal-title">Cart Items</h2>
         <Table

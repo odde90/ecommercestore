@@ -41,9 +41,7 @@ interface Props  {
 
 
 export default function Receipt(props: Props) {
-console.log(props.location.state)
-    //console.log(props.location.state.firstName)
-    
+ 
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
 

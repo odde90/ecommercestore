@@ -11,7 +11,6 @@ const AdminForm=()=> {
               label="User name"
               name='userName' 
               variant="outlined"
-              //onChange={this.handleChange}
               inputProps={{
                 minlength : 3,
                 required: true
@@ -23,7 +22,6 @@ const AdminForm=()=> {
               name='password' 
               type='password'
               variant="outlined"
-              //onChange={this.handleChange}
               inputProps={{
                 minlength : 3,
                 required: true
