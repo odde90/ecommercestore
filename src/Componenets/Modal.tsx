@@ -85,9 +85,15 @@ export default function SimpleModal(/* props: Props */) {
                   {cartItem.title}
                 </TableCell>
                 <TableCell align="right">{cartItem.price}</TableCell>
-                {getTotalAmount()} kr
               </TableRow>
             ))}
+          </TableBody>
+          <TableBody>
+            <TableRow>
+              <TableCell component="th" scope="row">
+                Total Amount: {getTotalAmount()} kr
+              </TableCell>
+            </TableRow>
           </TableBody>
         </Table>
       </TableContainer>
