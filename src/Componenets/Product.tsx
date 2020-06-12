@@ -21,7 +21,6 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     gridList: {
       width: 700,
-      /* height: 600, */
       marginTop: 150
     },
     icon: {
@@ -33,7 +32,7 @@ const useStyles = makeStyles((theme: Theme) =>
 interface Props extends RouteComponentProps<{ id: string }> { }
 
 export function getById() {
-  /* console.log(products.find(item => item.productID === 1)) */
+
   return products.find(item => item.productID === 5);
 }
 

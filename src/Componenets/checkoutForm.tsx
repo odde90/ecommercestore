@@ -13,6 +13,7 @@ import { Button } from '@material-ui/core';
 import { normalize } from 'path';
 import { Link, Redirect } from 'react-router-dom';
 import { CartContext } from './context';
+import { Product } from '../productdata';
 
  const initialState={
         
@@ -34,14 +35,13 @@ export class checkoutForm extends Component  {
              ...this.state,
              [ name]: value
           
-          }, ()=>{console.log(this.state)});  
+          });  
     };
 
 
     handleSubmit=()=>{
       this.setState({ redirect: true });
-      //this.setState(initialState)
-     
+     this.context.removeFromCart();
     }
      
   
@@ -147,11 +147,6 @@ const formStyle: React.CSSProperties={
     marginRight: 'auto',
      display: 'flex',
      flexDirection: 'column'
-
-
-     //flexWrap: 'wrap',
-   
-
 
 }
 const containerStyle1: React.CSSProperties={

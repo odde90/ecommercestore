@@ -11,19 +11,18 @@ export  class creditCard extends Component  {
              ...this.state,
              [ name]: value
           
-          }, ()=>{console.log(this.state)});  
+          });  
     };
     render() {
         return (
             <div >
-        <form  noValidate autoComplete="off" >
         <TextField
          label="Card Holder"
          type="text"
          style={containerStyle1}  
          inputProps={{
-          minlength : 3,
-          required: true
+          required: true,
+          minlength : 3
         
         }} 
             />
@@ -58,7 +57,7 @@ export  class creditCard extends Component  {
             />
             
       
-              </form>
+            
              </div>
         )
     }
