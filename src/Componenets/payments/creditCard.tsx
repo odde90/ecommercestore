@@ -20,15 +20,20 @@ export  class creditCard extends Component  {
         <TextField
          label="Card Holder"
          type="text"
-        // defaultValue="John Doe" 
+         style={containerStyle1}  
+         inputProps={{
+          minlength : 3,
+          required: true
+        
+        }} 
             />
             <TextField
           label="Card Number"
-          //style={containerStyle1}        
-         // value={firstName}
+          style={containerStyle1}        
           name='cardNumber' 
           onChange={this.handleChange}
           inputProps={{
+            required: true,
             minlength: 16,
             maxlength: 16
           }} 
@@ -37,13 +42,18 @@ export  class creditCard extends Component  {
          label="Expires"
          type="month"
          defaultValue="2020-05" 
+         inputProps={{
+          required: true
+        }} 
             />
         <TextField
          label="CVC/CVV"
          defaultValue="000" 
          inputProps={{
           minlength: 3,
-          maxlength: 3
+          maxlength: 3,
+          required: true
+
         }} 
             />
             
@@ -60,3 +70,6 @@ export  class creditCard extends Component  {
 
 export default creditCard;
 
+const containerStyle1: React.CSSProperties={
+  margin: '10'
+}

@@ -6,7 +6,7 @@ import { ChangeEvent } from 'react';
 import { EnterHandler } from 'react-transition-group/Transition';
 import  Shipping from './shipping';
 
-import MyForm  from './payment'
+import Payment  from './payment'
 import { kMaxLength } from 'buffer';
 import { maxHeight, lineHeight } from '@material-ui/system';
 import { Button } from '@material-ui/core';
@@ -36,6 +36,8 @@ export class checkoutForm extends Component  {
           
           }, ()=>{console.log(this.state)});  
     };
+
+
     handleSubmit=()=>{
       this.setState({ redirect: true });
       //this.setState(initialState)
@@ -53,7 +55,7 @@ export class checkoutForm extends Component  {
       }}/>);
     else   return (
             <div>
-        <form  autoComplete="on"  style={formStyle} >
+        <form  autoComplete="on"  style={formStyle} onSubmit={this.handleSubmit.bind(this)}>
            <h1>Check out</h1>
             <TextField
           label="First name"
@@ -121,11 +123,11 @@ export class checkoutForm extends Component  {
       <Shipping ship={this.handleChange}/>
       <h3>Total: {+this.state.price+this.context.totalAmount} kr</h3>
 
-     <div style={containerStyle1}  >
-     <MyForm/>
+     <div   >
+     <Payment />
       </div> 
       <div>
-      <Button variant="contained" size='small' color="primary" type='submit' onClick={this.handleSubmit.bind(this)}
+      <Button variant="contained" size='small' color="primary" type='submit' 
        >
      submit
   </Button>

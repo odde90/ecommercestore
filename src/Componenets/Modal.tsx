@@ -65,6 +65,7 @@ export default function SimpleModal(/* props: Props */) {
 
   const body = (
     <div>
+    {/* <CartContext.Provider value={{...,totalAmount}}/> */}
       <TableContainer component={Paper}>
         <h2 id="simple-modal-title">Cart Items</h2>
         <Table
