@@ -25,9 +25,9 @@ function Navbar() {
         <li>
           <Link to="/admin">Sign in</Link>
         </li>
-        <li>
+        {/* <li>
           <Link to="/Product">Product</Link>
-        </li>
+        </li> */}
         <li>
           <Link to="/">Home</Link>
         </li>

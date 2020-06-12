@@ -24,10 +24,20 @@ nav li a {
 .MuiGridListTile-tile a img {
   height: 100%;
 }
+.Ptext{
+  text-align: left;
+}
 
 
 
 .glow {
   color: white;
   text-shadow: 1px 1px 2px black, 0 0 25px rgb(81, 255, 0), 0 0 5px rgb(99, 9, 122);
+}
+
+.makeStyles-gridList-4 {
+  width: 45%;
+  height: 100%;
+  margin-top: 150px;
+  justify-content: center;
 }
