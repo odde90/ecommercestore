@@ -46,14 +46,14 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export default function SimpleModal(/* props: Props */) {
-  const { cartItems, totalAmount } = useContext(CartContext);
+  const { cartItems, getTotalAmount } = useContext(CartContext);
+
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = React.useState(getModalStyle);
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
-    console.log(totalAmount);
     setOpen(true);
   };
 
@@ -62,6 +62,7 @@ export default function SimpleModal(/* props: Props */) {
   };
 
   const handleCheckout = () => {};
+  var total = 0;
 
   const body = (
     <div>
@@ -84,6 +85,7 @@ export default function SimpleModal(/* props: Props */) {
                   {cartItem.title}
                 </TableCell>
                 <TableCell align="right">{cartItem.price}</TableCell>
+                {getTotalAmount()} kr
               </TableRow>
             ))}
           </TableBody>
