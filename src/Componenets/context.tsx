@@ -2,6 +2,7 @@ import React, { createContext, useState, PropsWithChildren } from "react";
 import { Product } from "../productdata";
 import { getThemeProps } from "@material-ui/styles";
 
+
 type Props = PropsWithChildren<{}>;
 
 interface ContextProps {
@@ -44,8 +45,13 @@ export function CartProvider(props: Props) {
         addToCart,
         getTotalAmount
       }}
+
     >
       {props.children}
     </CartContext.Provider>
   );
 }
+
+
+
+

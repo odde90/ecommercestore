@@ -5,8 +5,11 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import CreditCard from './payments/creditCard'
+import { TextField, FormHelperText } from '@material-ui/core';
+ 
 
-export default class MyForm extends Component {
+
+export default class Payment extends Component {
     state = { selected: "" };
     handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       this.setState({ selected: e.target.value });
@@ -16,7 +19,7 @@ export default class MyForm extends Component {
       const { selected } = this.state;
       return (
           
-        <FormControl component="fieldset" name="method-of-payment">
+        <FormControl required component="fieldset" name="method-of-payment">
           <RadioGroup onChange={this.handleChange} value={selected}>
             <FormControlLabel
               value="credit"
@@ -27,20 +30,29 @@ export default class MyForm extends Component {
             <FormControlLabel 
             value="swish" 
             control={<Radio />} 
-            label="Swish" />
-            {this.state.selected === 'swish' && <p>I</p>}
+            label="Pay directly from bank account" />
+            {this.state.selected === 'swish' && 
+            <TextField
+              label="Your ID"
+               
+              placeholder="personal number"
+              inputProps={{
+                minlength : 10,
+                maxlength: 10
+              
+              }} />}
 
 
             <FormControlLabel
               value="cash"
               control={<Radio />}
-              label="Pay by cash when recieve"
+              label="Cash"
             />
-            {this.state.selected === 'cash' && <p>H</p>}
+            {this.state.selected === 'cash' && <p>Pay by cash when you recieve the order</p>}
 
 
           </RadioGroup>
-         
+          <FormHelperText>Required</FormHelperText>
           
         </FormControl>
       
@@ -53,5 +65,13 @@ export default class MyForm extends Component {
 
 
 
-
-  
+  const containerStyle1: React.CSSProperties={
+    width: '40%',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    paddingBottom: 10,
+    marginTop: 0,
+    fontWeight: 500
+    
+   
+}
