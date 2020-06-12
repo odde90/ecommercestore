@@ -10,7 +10,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import ShoppingCartRoundedIcon from '@material-ui/icons/ShoppingCartRounded';
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 
@@ -46,22 +46,22 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export default function SimpleModal(/* props: Props */) {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, totalAmount } = useContext(CartContext);
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = React.useState(getModalStyle);
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
-    /*     console.log(cartItems[0].productID);
-     */ setOpen(true);
+    console.log(totalAmount);
+    setOpen(true);
   };
 
   const handleClose = () => {
     setOpen(false);
   };
 
-  const handleCheckout = () => {};
+  const handleCheckout = () => { };
 
   const body = (
     <div>
@@ -99,9 +99,8 @@ export default function SimpleModal(/* props: Props */) {
   return (
     <div>
       <button type="button" onClick={handleOpen}>
-        <ShoppingCartIcon /> {cartItems.length}
+        <ShoppingCartRoundedIcon style={{ color: "green", }} /> {cartItems.length}
       </button>
-
 
       <Modal
         open={open}

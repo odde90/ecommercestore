@@ -20,10 +20,10 @@ function Navbar() {
 
   return (
     <nav>
-      <h2 className="glow">ONLINE SHOP</h2>
+      <h2 className="glow"> <Link to="/">ONLINE SHOP</Link></h2>
       <ul>
         <li>
-          <Link to="/">Sign in</Link>
+          <Link to="/admin">Sign in</Link>
         </li>
         <li>
           <Link to="/Product">Product</Link>
