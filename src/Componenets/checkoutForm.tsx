@@ -22,6 +22,7 @@ import { CartContext } from './context';
   phone: '',
   adress: '',
   price: 0,
+  selected: '',
   redirect: false
 
 }
@@ -124,7 +125,7 @@ export class checkoutForm extends Component  {
       <h3>Total: {+this.state.price+ (this.context.getTotalAmount())} kr</h3>
 
      <div   >
-     <Payment />
+     <Payment ship={this.handleChange} selected={this.state.selected}/>
       </div> 
       <div>
       <Button variant="contained" size='small' color="primary" type='submit' 

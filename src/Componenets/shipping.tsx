@@ -49,9 +49,7 @@ export default function Shipping(props: Props){
           native
           onChange={props.ship}
           name="price"
-          inputProps={{
-            id: 'age-native-required',
-          }}
+         
         >
           <option aria-label="None" value="" />
           <option value={100}>100kr, delivered by {today(1)} </option>
