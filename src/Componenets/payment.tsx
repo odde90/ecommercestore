@@ -30,12 +30,12 @@ export default class Payment extends Component {
             <FormControlLabel 
             value="swish" 
             control={<Radio />} 
-            label="Pay directly from bank account" />
+            label="Swish" />
             {this.state.selected === 'swish' && 
             <TextField
-              label="Your ID"
+            helperText="Swish the total amount to the number 000 111 22 33 and write your number below"
                
-              placeholder="personal number"
+              placeholder="Swish phone number"
               inputProps={{
                 minlength : 10,
                 maxlength: 10,

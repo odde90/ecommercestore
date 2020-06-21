@@ -147,7 +147,6 @@ const formStyle: React.CSSProperties={
     marginRight: 'auto',
      display: 'flex',
      flexDirection: 'column'
-
 }
 const containerStyle1: React.CSSProperties={
     width: '40%',

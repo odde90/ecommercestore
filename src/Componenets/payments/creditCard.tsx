@@ -47,7 +47,6 @@ export  class creditCard extends Component  {
             />
         <TextField
          label="CVC/CVV"
-         defaultValue="000" 
          inputProps={{
           minlength: 3,
           maxlength: 3,

@@ -54,9 +54,9 @@ export default function Shipping(props: Props){
           }}
         >
           <option aria-label="None" value="" />
-          <option value={100}>100kr, delivered by {today(1)} </option>
-          <option value={50}>50kr, delivered by {today(3)} </option>
-          <option value={0}>free, delivered by {today(7)} </option>
+          <option value={100}>FedEx, 100kr, delivered by {today(1)} </option>
+          <option value={50}>PostNord, 50kr, delivered by {today(3)} </option>
+          <option value={0}>DHL, free, delivered by {today(7)} </option>
         </Select>
         <FormHelperText>Required</FormHelperText>
       </FormControl>
