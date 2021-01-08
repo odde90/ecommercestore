@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     gridList: {
       width: 700,
-      height: 700,
+      /* height: 600, */
       marginTop: 150
     },
     icon: {
@@ -82,10 +82,12 @@ function Product(props: Props) {
 
           <Typography variant="body1" gutterBottom>
             <h1>{product.title}</h1>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
-            unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
-            dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
-      </Typography>
+            <p className="Ptext">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
+              unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
+              dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+            </p>
+          </Typography>
 
 
         </GridList>

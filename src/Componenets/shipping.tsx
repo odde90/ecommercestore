@@ -22,8 +22,6 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function Shipping(props: Props){
   
-  
-
     const classes = useStyles();
     const [state, setState] = React.useState<{ price: string }>({
     
@@ -51,19 +49,17 @@ export default function Shipping(props: Props){
           native
           onChange={props.ship}
           name="price"
-          inputProps={{
-            id: 'age-native-required',
-          }}
+         
         >
           <option aria-label="None" value="" />
-          <option value={10}>Next day,{today(1)} </option>
-          <option value={20}>Two days{today(2)} </option>
-          <option value={30}>Three days{today(3)} </option>
+          <option value={100}>100kr, delivered by {today(1)} </option>
+          <option value={50}>50kr, delivered by {today(3)} </option>
+          <option value={0}>free, delivered by {today(7)} </option>
         </Select>
         <FormHelperText>Required</FormHelperText>
       </FormControl>
         </div>
-    )
+    );
     
 }
 
